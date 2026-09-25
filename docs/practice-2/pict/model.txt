@@ -1,0 +1,12 @@
+CardExists: Yes, No
+CardStatus: ACTIVE, INACTIVE, BLOCKED, EXPIRED
+Expiry: Valid, Expired
+DailyLimit: Within, Exceeded
+MonthlyLimit: Within, Exceeded
+Balance: Sufficient, Insufficient
+CMS: Available, Unavailable
+BinLookup: Success, Unavailable
+
+IF [CardExists] = "No" THEN [CardStatus] = "ACTIVE";
+IF [CardExists] = "No" THEN [Expiry] = "Valid";
+IF [CMS] = "Unavailable" THEN [CardExists] = "Yes";
