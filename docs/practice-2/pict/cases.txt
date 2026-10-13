@@ -1,0 +1,12 @@
+CardExists	CardStatus	Expiry	DailyLimit	MonthlyLimit	Balance	CMS	BinLookup
+Yes	ACTIVE	Valid	Within	Within	Sufficient	Available	Success
+Yes	INACTIVE	Expired	Exceeded	Exceeded	Insufficient	Unavailable	Unavailable
+No	ACTIVE	Valid	Within	Exceeded	Insufficient	Available	Unavailable
+Yes	BLOCKED	Expired	Exceeded	Within	Sufficient	Unavailable	Success
+Yes	EXPIRED	Valid	Within	Within	Sufficient	Unavailable	Unavailable
+Yes	EXPIRED	Expired	Exceeded	Exceeded	Insufficient	Available	Success
+Yes	INACTIVE	Valid	Within	Within	Sufficient	Available	Success
+Yes	BLOCKED	Valid	Within	Within	Insufficient	Available	Unavailable
+No	ACTIVE	Valid	Exceeded	Within	Sufficient	Available	Success
+Yes	ACTIVE	Expired	Within	Exceeded	Sufficient	Unavailable	Success
+Yes	BLOCKED	Valid	Within	Exceeded	Sufficient	Available	Success

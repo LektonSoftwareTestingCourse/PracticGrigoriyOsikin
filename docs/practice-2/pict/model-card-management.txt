@@ -1,0 +1,10 @@
+Operation: Create, Get, List, Patch, Delete, Reserve
+Pan: Existing, Missing, Invalid
+Status: ACTIVE, INACTIVE, BLOCKED, EXPIRED
+DailyLimit: Zero, Positive, Negative
+MonthlyLimit: Zero, Positive, Negative
+Amount: Zero, WithinBalance, EqualBalance, AboveBalance
+Pagination: Default, Valid, Invalid
+Bin: Registered, Unregistered
+
+IF [Operation] = "Create" THEN [Bin] = "Registered";
