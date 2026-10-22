@@ -217,6 +217,7 @@
                     <configuration>
                         <configLocation>checkstyle.xml</configLocation>
                         <excludeGeneratedSources>true</excludeGeneratedSources>
+                        <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         <excludes>**/target/**</excludes>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
@@ -241,6 +242,22 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals><goal>prepare-agent</goal></goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals><goal>report</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
