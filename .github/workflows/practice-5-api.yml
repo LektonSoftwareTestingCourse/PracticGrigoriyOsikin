@@ -1,0 +1,28 @@
+name: Practice 5 API contracts
+
+on:
+  push:
+    branches:
+    - 'practice-5*'
+    - 'codex/practice-5*'
+  workflow_dispatch:
+
+jobs:
+  api-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '21'
+        cache: maven
+    - name: Run API contracts
+      run: scripts/api-tests.sh
+    - name: Publish JUnit reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-test-results
+        path: services/api-tests/target/surefire-reports/
