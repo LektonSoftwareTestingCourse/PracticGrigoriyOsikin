@@ -25,9 +25,15 @@ repos:
     name: "Fix end of files (newline)"
     exclude: \.csv$
   - id: check-yaml
+    alias: check-yaml-standard
     name: "Check YAML syntax"
     args: [ --allow-multiple ]
-    exclude: ^starters/java/target/
+    exclude: ^(starters/java/target/|infra/compose\.api-tests\.yaml$)
+  - id: check-yaml
+    alias: check-yaml-compose-api-tests
+    name: "Check YAML syntax with Compose tags"
+    args: [ --unsafe ]
+    files: ^infra/compose\.api-tests\.yaml$
   - id: check-json
     name: "Check JSON syntax"
   - id: check-merge-conflict
