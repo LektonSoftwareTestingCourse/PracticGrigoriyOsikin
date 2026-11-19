@@ -1,0 +1,36 @@
+services:
+  postgres:
+    container_name: !reset null
+    ports: !reset []
+  rabbitmq:
+    container_name: !reset null
+    ports: !reset []
+  gateway:
+    container_name: !reset null
+    environment:
+      TRANSACTIONS_RATE_LIMIT_CAPACITY: ${API_TEST_RATE_CAPACITY:-100}
+      TRANSACTIONS_RATE_LIMIT_REFILL_PER_SECOND: ${API_TEST_RATE_REFILL:-100}
+    ports: !override ["127.0.0.1::8080"]
+  card-management:
+    container_name: !reset null
+    ports: !override ["127.0.0.1::8080"]
+  switch:
+    container_name: !reset null
+    environment:
+      SPRING_RABBITMQ_PORT: ${API_TEST_AMQP_PORT:-5672}
+      SPRING_RABBITMQ_CONNECTION_TIMEOUT: 2s
+    ports: !override ["127.0.0.1::8080"]
+  authorization:
+    container_name: !reset null
+    ports: !override ["127.0.0.1::8080"]
+  transaction-logger:
+    container_name: !reset null
+    ports: !override ["127.0.0.1::8080"]
+  bin-lookup:
+    container_name: !reset null
+    ports: !reset []
+  terminal-simulator:
+    ports: !reset []
+  merchant-acquirer:
+    container_name: !reset null
+    ports: !override ["127.0.0.1::8080"]

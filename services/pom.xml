@@ -32,6 +32,7 @@
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <!-- E2E require docker compose; enabled via -Pe2e-tests -->
         <skipE2eTests>true</skipE2eTests>
+        <skipApiTests>true</skipApiTests>
     </properties>
 
 
@@ -54,6 +55,7 @@
                 <module>bin-lookup</module>
                 <module>notification-service</module>
                 <module>e2e-tests</module>
+                <module>api-tests</module>
             </modules>
         </profile>
 
@@ -101,6 +103,17 @@
             </modules>
             <properties>
                 <skipE2eTests>false</skipE2eTests>
+            </properties>
+        </profile>
+
+
+        <profile>
+            <id>api-tests</id>
+            <modules>
+                <module>api-tests</module>
+            </modules>
+            <properties>
+                <skipApiTests>false</skipApiTests>
             </properties>
         </profile>
 
